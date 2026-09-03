@@ -1599,9 +1599,9 @@ button {
 
 .future-nav {
     position: absolute;
-    left: 8.5%;
+    left: 22%;
     right: auto;
-    bottom: 8%;
+    bottom: 25%;
 
     display: flex;
     align-items: center;
