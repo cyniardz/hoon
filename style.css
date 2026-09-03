@@ -1,0 +1,2789 @@
+:root {
+    --cream: #f3ece0;
+    --brown: #51463d;
+    --brown-dark: #433931;
+    --brown-light: #967e68;
+    --line: #d8cbbb;
+
+    --sans: "DM Sans", sans-serif;
+    --hand: "Nanum Pen Script", cursive;
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+}
+
+body {
+    background: var(--cream);
+    color: var(--brown);
+    font-family: var(--sans);
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    border: 0;
+    background: none;
+    font: inherit;
+}
+
+
+/* =========================
+   COMMON
+========================= */
+
+.section {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    scroll-snap-align: start;
+}
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.header {
+    position: fixed;
+
+    z-index: 1000;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 92px;
+
+    padding: 0 5.5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    letter-spacing: 0.04em;
+
+    transition: opacity 0.4s ease;
+}
+
+.logo.logo-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.logo-star {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+/* =========================
+   DESKTOP NAV
+========================= */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 42px;
+
+    margin-left: auto;
+    margin-right: 70px;
+}
+
+.main-nav a {
+    font-size: 12px;
+    font-weight: 500;
+
+    letter-spacing: 0.03em;
+
+    transition: opacity 0.3s ease;
+}
+
+.main-nav a:hover {
+    opacity: 0.45;
+}
+
+
+/* =========================
+   MENU BUTTON
+========================= */
+
+.menu-button {
+    width: 30px;
+    height: 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+
+    width: 29px;
+    height: 1px;
+
+    background: var(--brown);
+}
+
+
+/* ==================================================
+   01 INTRO
+================================================== */
+
+.intro {
+    position: relative;
+
+    width: 100%;
+    height: 100svh;
+    min-height: 100svh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(255, 250, 243, 0.5) 0%,
+            rgba(243, 236, 224, 0) 50%
+        ),
+        var(--cream);
+}
+
+
+/* =========================
+   PLAY / FIRST
+========================= */
+
+.hero-title {
+    position: absolute;
+
+    z-index: 1;
+
+    top: 50%;
+    left: 50%;
+
+    width: max-content;
+
+    transform: translate(-50%, -50%);
+
+    color: var(--brown-dark);
+
+    /* 기존 설정 유지 */
+    font-size: clamp(130px, 24vw, 380px);
+
+    font-weight: 700;
+
+    line-height: 0.89;
+
+    letter-spacing: -0.09em;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+.hero-title span {
+    display: block;
+}
+
+
+/* =========================
+   INTRO PROFILE
+========================= */
+
+.profile-area {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 50%;
+    left: 50%;
+
+    /* 기존 설정 유지 */
+    width: min(78vw, 940px);
+
+    height: 72%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-placeholder img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+}
+
+
+/* =========================
+   INTRO HANDWRITING
+========================= */
+
+.play-message {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 7.2%;
+    bottom: 22%;
+
+    width: 250px;
+}
+
+.play-message p {
+    position: relative;
+
+    color: var(--brown-dark);
+
+    font-family: var(--hand);
+
+    font-size: clamp(42px, 4.5vw, 65px);
+
+    line-height: 0.98;
+
+    transform: rotate(-3deg);
+}
+
+.scribble-star {
+    position: absolute;
+
+    color: var(--brown-light);
+
+    font-family: serif;
+
+    line-height: 1;
+}
+
+.star-one {
+    top: -33px;
+    left: -24px;
+
+    font-size: 27px;
+}
+
+.star-two {
+    top: -48px;
+    left: 5px;
+
+    font-size: 16px;
+}
+
+.scribble-line {
+    display: block;
+
+    width: 200px;
+    height: 13px;
+
+    margin-top: 20px;
+
+    border-top: 2px solid #c9a988;
+
+    border-radius: 50%;
+
+    transform: rotate(-7deg);
+}
+
+
+/* =========================
+   PORTFOLIO COPY
+========================= */
+
+.portfolio-copy {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 8.3%;
+    bottom: 8.8%;
+
+    display: flex;
+    align-items: stretch;
+
+    gap: 25px;
+}
+
+.portfolio-copy > span {
+    display: block;
+
+    width: 1px;
+
+    background: #b79e87;
+}
+
+.portfolio-copy p {
+    color: #514840;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+
+    letter-spacing: 0.01em;
+}
+
+
+/* ==================================================
+   SCROLL
+================================================== */
+
+.scroll-guide {
+    position: fixed;
+
+    z-index: 950;
+
+    left: 50%;
+    bottom: 3.3%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 13px;
+
+    cursor: pointer;
+
+    animation: scrollFloat 2s ease-in-out infinite;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+.scroll-guide > span {
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.34em;
+}
+
+.scroll-arrow {
+    position: relative;
+
+    width: 1px;
+    height: 42px;
+
+    background: var(--brown);
+}
+
+.scroll-arrow span {
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    border-right: 1px solid var(--brown);
+    border-bottom: 1px solid var(--brown);
+
+    transform: translateX(-50%) rotate(45deg);
+}
+
+
+/* ==================================================
+   TOP
+================================================== */
+
+.top-guide {
+    position: fixed;
+
+    z-index: 950;
+
+    left: 50%;
+    bottom: 3.3%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 13px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+.top-guide > span {
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.34em;
+}
+
+.top-arrow {
+    position: relative;
+
+    width: 1px;
+    height: 42px;
+
+    background: var(--brown);
+}
+
+.top-arrow span {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    border-left: 1px solid var(--brown);
+    border-top: 1px solid var(--brown);
+
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.top-guide.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-guide.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* =========================
+   MUSIC TOGGLE
+========================= */
+
+.music-toggle {
+    position: fixed;
+    z-index: 950;
+
+    right: 5.5vw;
+    bottom: 26px;
+
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--brown);
+    border-radius: 50%;
+    background: var(--cream);
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.music-toggle:hover {
+    background: var(--brown-dark);
+}
+
+.music-toggle:hover .music-icon::before {
+    color: var(--cream);
+}
+
+.music-icon {
+    position: relative;
+    width: 18px;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-icon::before {
+    content: "♪";
+    font-size: 20px;
+    line-height: 1;
+    color: var(--brown-dark);
+    transition:
+        color 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.music-toggle.is-muted .music-icon::before {
+    opacity: 0.4;
+}
+
+.music-toggle.is-muted .music-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 26px;
+    height: 1px;
+
+    background: var(--brown-dark);
+
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.music-toggle.is-muted:hover .music-icon::after {
+    background: var(--cream);
+}
+
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+@keyframes scrollFloat {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(7px);
+    }
+}
+
+
+/* ==================================================
+   INTRO DECORATION
+================================================== */
+
+.decor-circle {
+    position: absolute;
+
+    border: 1px solid rgba(180, 156, 133, 0.3);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.circle-top {
+    width: 370px;
+    height: 370px;
+
+    top: -105px;
+    right: -125px;
+}
+
+.circle-bottom {
+    width: 420px;
+    height: 420px;
+
+    left: -215px;
+    bottom: -275px;
+}
+
+
+/* ==================================================
+   SECTION NAVIGATION
+================================================== */
+
+.section-nav {
+    position: fixed;
+
+    z-index: 900;
+
+    right: 5.5%;
+    top: 55%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.section-nav::before {
+    content: "";
+
+    position: absolute;
+
+    top: 7px;
+    bottom: 7px;
+    left: 4px;
+
+    width: 1px;
+
+    background: #d1c1b0;
+}
+
+.section-nav-item {
+    position: relative;
+
+    width: 120px;
+    height: 55px;
+
+    display: grid;
+
+    grid-template-columns: 10px 25px 1fr;
+
+    align-items: center;
+
+    column-gap: 10px;
+
+    color: #8b7e72;
+
+    font-size: 11px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.section-nav-item .dot {
+    position: relative;
+
+    z-index: 2;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #cdbdad;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.section-nav-item .section-index {
+    font-size: 11px;
+}
+
+.section-nav-item .section-name {
+    white-space: nowrap;
+}
+
+.section-nav-item.active {
+    color: var(--brown-dark);
+
+    font-weight: 600;
+}
+
+.section-nav-item.active .dot {
+    background: var(--brown-dark);
+
+    transform: scale(1.15);
+}
+
+.section-nav-item:hover {
+    color: var(--brown-dark);
+}
+
+
+/* ==================================================
+   02 ABOUT ME
+================================================== */
+
+.about-section {
+    position: relative;
+
+    width: 100%;
+    height: 100svh;
+    min-height: 100svh;
+
+    overflow: hidden;
+
+    background: var(--cream);
+}
+
+
+/* =========================
+   ABOUT TITLE
+========================= */
+
+.about-heading {
+    position: absolute;
+
+    z-index: 20;
+
+    top: 19%;
+    left: 8.6%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.about-heading h2 {
+    color: var(--brown-dark);
+
+    font-size: clamp(30px, 3vw, 48px);
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: -0.04em;
+}
+
+.about-heading-line {
+    display: block;
+
+    width: 45px;
+    height: 1px;
+
+    margin-top: 15px;
+
+    background: var(--brown-dark);
+}
+
+
+/* ==================================================
+   ABOUT BACKGROUND TYPOGRAPHY
+
+   IMPORTANT:
+   이미지보다 뒤에 있어야 하므로
+   z-index: 1
+================================================== */
+
+.about-background-text {
+    position: absolute;
+
+    z-index: 1;
+
+    /* 화면 중앙 */
+    top: 50%;
+    left: 50%;
+
+    width: max-content;
+
+    transform: translate(-50%, -50%);
+
+    color: var(--brown-dark);
+
+    font-size: clamp(150px, 17vw, 290px);
+
+    font-weight: 700;
+
+    line-height: 0.84;
+
+    letter-spacing: -0.09em;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+.about-background-text span {
+    display: block;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   ABOUT PROFILE
+
+   IMPORTANT:
+   이미지와 텍스트를 동일한 중앙 기준으로 맞춤
+================================================== */
+
+.about-profile {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 50%;
+    left: 50%;
+
+    width: min(50vw, 720px);
+    height: 76%;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-profile img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+}
+
+
+/* ==================================================
+   ABOUT INFORMATION
+================================================== */
+
+.about-info {
+    position: absolute;
+
+    z-index: 20;
+
+    left: 8.8%;
+    bottom: 11.5%;
+
+    width: 430px;
+}
+
+
+/* =========================
+   BASIC INFO
+========================= */
+
+.about-basic {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+}
+
+.about-basic strong {
+    color: var(--brown-dark);
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    letter-spacing: 0.01em;
+}
+
+.about-basic span {
+    margin-top: 7px;
+
+    color: var(--brown-light);
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    line-height: 1;
+}
+
+.about-basic i {
+    display: block;
+
+    width: 45px;
+    height: 1px;
+
+    margin-top: 13px;
+
+    background: var(--brown-dark);
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.about-description {
+    margin-top: 28px;
+
+    color: var(--brown-dark);
+
+    font-family: "Gowun Batang", serif;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    line-height: 1.8;
+
+    letter-spacing: -0.03em;
+}
+
+
+/* =========================
+   TAGS
+========================= */
+
+.about-tags {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: 32px;
+}
+
+.about-tags span {
+    min-width: 80px;
+
+    height: 31px;
+
+    padding: 0 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--brown);
+
+    border-radius: 20px;
+
+    color: var(--brown-dark);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   ABOUT DECORATION
+========================= */
+
+.about-decoration {
+    position: absolute;
+
+    z-index: 0;
+
+    width: 360px;
+    height: 360px;
+
+    left: -220px;
+    bottom: -230px;
+
+    border: 1px solid rgba(180, 156, 133, 0.3);
+
+    border-radius: 50%;
+}
+
+
+/* ==================================================
+   03 LIKE
+================================================== */
+
+.like-section {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--cream);
+}
+
+
+/* =========================
+   LIKE INTRO
+========================= */
+
+.like-intro {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: max-content;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition:
+        opacity 0.5s ease,
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.like-section.is-story .like-intro {
+    opacity: 0;
+    transform: translate(-50%, -65%);
+    pointer-events: none;
+}
+
+.like-section-number {
+    display: block;
+    margin-bottom: 22px;
+    color: var(--brown-light);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+}
+
+.like-intro h2 {
+    color: var(--brown-dark);
+    font-size: clamp(110px, 19vw, 300px);
+    font-weight: 700;
+    line-height: 0.82;
+    letter-spacing: -0.09em;
+}
+
+.like-intro p {
+    margin-top: 30px;
+    color: var(--brown-light);
+    font-family: "Gowun Batang", serif;
+    font-size: 20px;
+    letter-spacing: -0.03em;
+}
+
+
+/* =========================
+   LIKE STORY
+========================= */
+
+.like-story {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    width: min(74vw, 980px);
+    transform: translate(-50%, -50%);
+}
+
+.like-item {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 22px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(0, calc(-50% + 90px));
+    transition:
+        opacity 0.55s ease,
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 0.75s;
+}
+
+.like-item.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, -50%);
+    transition-delay: 0s;
+}
+
+.like-item-number {
+    flex: 0 0 auto;
+    padding-top: 0;
+    color: var(--brown-light);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+}
+
+.like-item-content {
+    border-top: none;
+    width: min(94%, 980px);
+    padding-top: 0;
+}
+
+.like-item-content h3 {
+    color: var(--brown-dark);
+    font-family: var(--sans);
+    font-size: clamp(38px, 4.5vw, 68px);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.05em;
+    transform: translateY(45px);
+    opacity: 0;
+    transition:
+        opacity 0.55s ease 0.12s,
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.12s;
+}
+
+.like-item-content p {
+    margin-top: 26px;
+    color: var(--brown);
+    font-family: "Gowun Batang", serif;
+    font-size: clamp(20px, 2.3vw, 34px);
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: -0.03em;
+    transform: translateY(45px);
+    opacity: 0;
+    transition:
+        opacity 0.55s ease 0.22s,
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.22s;
+}
+
+.like-item.active .like-item-content h3,
+.like-item.active .like-item-content p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================
+   LIKE COUNTER
+========================= */
+
+.like-counter {
+    position: absolute;
+    z-index: 4;
+    right: 8.5%;
+    bottom: 10%;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    color: var(--brown-light);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+        opacity 0.4s ease,
+        transform 0.5s ease;
+}
+
+.like-section.is-story .like-counter {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.like-counter-line {
+    width: 38px;
+    height: 1px;
+    background: var(--line);
+}
+
+
+/* =========================
+   LIKE DECORATION
+========================= */
+
+.like-section::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    right: -310px;
+    top: -260px;
+    border: 1px solid rgba(180, 156, 133, 0.25);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.like-section::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: -270px;
+    bottom: -280px;
+    border: 1px solid rgba(180, 156, 133, 0.22);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   LIKE STORY SCROLL LOCK
+================================================== */
+
+.like-section.story-active {
+    overscroll-behavior: contain;
+}
+
+
+/* ==================================================
+   04 WORK
+================================================== */
+
+.work-section {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--cream);
+}
+
+
+/* =========================
+   WORK INTRO
+========================= */
+
+.work-intro {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: max-content;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    transition:
+        opacity 0.5s ease,
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.work-section.is-story .work-intro {
+    opacity: 0;
+    transform: translate(-50%, -65%);
+    pointer-events: none;
+}
+
+.work-section-number {
+    display: block;
+    margin-bottom: 22px;
+    color: var(--brown-light);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+}
+
+.work-intro h2 {
+    color: var(--brown-dark);
+    font-size: clamp(80px, 15vw, 220px);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+}
+
+.work-intro p {
+    margin-top: 30px;
+    color: var(--brown-light);
+    font-family: "Gowun Batang", serif;
+    font-size: 15px;
+    letter-spacing: -0.03em;
+}
+
+
+/* =========================
+   WORK STORY
+========================= */
+
+.work-story {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    width: min(88vw, 1140px);
+    transform: translate(-50%, -50%);
+}
+
+.work-item {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 42px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(0, calc(-50% + 90px));
+    transition:
+        opacity 0.55s ease,
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 0.75s;
+}
+
+.work-item.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, -50%);
+    transition-delay: 0s;
+}
+
+.work-item-image {
+    width: clamp(280px, 42vw, 560px);
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 6px;
+    background: rgba(150, 126, 104, 0.12);
+}
+
+.work-item-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.work-item-content {
+    border-top: none;
+    width: min(94%, 980px);
+    padding-top: 0;
+
+    transform: translateY(45px);
+    opacity: 0;
+    transition:
+        opacity 0.55s ease 0.12s,
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.12s;
+}
+
+.work-item.active .work-item-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.work-item-number {
+    color: var(--brown-light);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+}
+
+.work-item-content h3 {
+    margin-top: 14px;
+    color: var(--brown-dark);
+    font-family: var(--sans);
+    font-size: clamp(38px, 4.5vw, 68px);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.05em;
+}
+
+.work-item-category {
+    margin-top: 14px;
+    color: var(--brown-light);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+}
+
+.work-item-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    margin-top: 28px;
+    padding: 11px 20px;
+
+    border: 1px solid var(--brown);
+    border-radius: 24px;
+
+    color: var(--brown-dark);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.work-item-link:hover {
+    background: var(--brown-dark);
+    color: var(--cream);
+}
+
+
+/* =========================
+   WORK COUNTER
+========================= */
+
+.work-counter {
+    position: absolute;
+    z-index: 4;
+    right: 8.5%;
+    bottom: 10%;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    color: var(--brown-light);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+        opacity 0.4s ease,
+        transform 0.5s ease;
+}
+
+.work-section.is-story .work-counter {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.work-counter-line {
+    width: 38px;
+    height: 1px;
+    background: var(--line);
+}
+
+
+/* =========================
+   WORK DECORATION
+========================= */
+
+.work-section::before {
+    content: "";
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    left: -280px;
+    top: -240px;
+    border: 1px solid rgba(180, 156, 133, 0.25);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.work-section::after {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    right: -230px;
+    bottom: -240px;
+    border: 1px solid rgba(180, 156, 133, 0.22);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.work-section.story-active {
+    overscroll-behavior: contain;
+}
+
+
+/* ==================================================
+   05 FUTURE
+================================================== */
+
+.future-section {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--cream);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================
+   FUTURE HEADING
+========================= */
+
+.future-heading {
+    position: absolute;
+    z-index: 2;
+    top: 14%;
+    left: 8.6%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.future-section-number {
+    color: var(--brown-light);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+}
+
+.future-heading h2 {
+    margin-top: 12px;
+    color: var(--brown-dark);
+    font-size: clamp(30px, 3vw, 48px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+
+/* =========================
+   FUTURE SLIDER
+========================= */
+
+.future-slider {
+    position: relative;
+    z-index: 2;
+    width: min(70vw, 760px);
+    overflow: hidden;
+}
+
+.future-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.future-slide {
+    flex: 0 0 100%;
+    padding: 20px 4px;
+}
+
+.future-slide-number {
+    display: block;
+    color: var(--brown-light);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+}
+
+.future-slide h3 {
+    margin-top: 22px;
+    color: var(--brown-dark);
+    font-family: var(--sans);
+    font-size: clamp(24px, 2.6vw, 36px);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.04em;
+}
+
+.future-slide p {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+
+    color: var(--brown);
+    font-family: "Gowun Batang", serif;
+    font-size: clamp(16px, 1.6vw, 22px);
+    font-weight: 700;
+    line-height: 1.8;
+    letter-spacing: -0.03em;
+}
+
+
+/* =========================
+   FUTURE NAVIGATION
+========================= */
+
+.future-nav {
+    position: absolute;
+    left: 8.5%;
+    right: auto;
+    bottom: 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.future-nav-count {
+    margin-right: 8px;
+    color: var(--brown-light);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+}
+
+.future-nav-current {
+    color: var(--brown-dark);
+    font-weight: 600;
+}
+
+.future-arrow {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--brown);
+    border-radius: 50%;
+
+    color: var(--brown-dark);
+    font-size: 22px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+.future-arrow:hover {
+    background: var(--brown-dark);
+    color: var(--cream);
+}
+
+.future-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.future-arrow:disabled:hover {
+    background: none;
+    color: var(--brown-dark);
+}
+
+
+/* =========================
+   FUTURE DECORATION
+========================= */
+
+.future-section::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    right: -260px;
+    top: -220px;
+    border: 1px solid rgba(180, 156, 133, 0.25);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   06 CONTACT
+================================================== */
+
+.contact-section {
+    position: relative;
+    width: 100%;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--cream);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+/* =========================
+   CONTACT HEADING
+========================= */
+
+.contact-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-section-number {
+    color: var(--brown-light);
+    font-size: 13px;
+    letter-spacing: 0.12em;
+}
+
+.contact-heading h2 {
+    margin-top: 16px;
+    color: var(--brown-dark);
+    font-size: clamp(60px, 8vw, 130px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+
+/* =========================
+   CONTACT LINKS
+========================= */
+
+.contact-links {
+    margin-top: 55px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--brown-dark);
+    font-size: clamp(15px, 1.6vw, 20px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+
+    transition: opacity 0.3s ease;
+}
+
+.contact-link span {
+    color: var(--brown-light);
+    font-size: 0.85em;
+}
+
+.contact-link:hover {
+    opacity: 0.5;
+}
+
+.contact-text {
+    color: var(--brown-dark);
+    font-size: clamp(15px, 1.6vw, 20px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+
+/* =========================
+   CONTACT MESSAGE
+========================= */
+
+.contact-message {
+    margin-top: 45px;
+
+    color: var(--brown-light);
+    font-family: "Gowun Batang", serif;
+    font-size: 15px;
+    line-height: 1.9;
+    letter-spacing: -0.02em;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.site-footer {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    padding: 26px 5.5vw 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+}
+
+.footer-copy {
+    color: var(--brown-light);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+}
+
+.visitor-badge {
+    display: block;
+    height: 20px;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .header {
+        height: 75px;
+
+        padding: 0 6vw;
+    }
+
+    .logo {
+        font-size: 13px;
+    }
+
+    .logo-star {
+        font-size: 17px;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .menu-button {
+        width: 26px;
+        height: 22px;
+    }
+
+    .menu-button span {
+        width: 26px;
+    }
+
+
+    /* =========================
+       INTRO TITLE
+    ========================== */
+
+    .hero-title {
+        top: 50%;
+        left: 50%;
+
+        width: max-content;
+
+        transform: translate(-50%, -50%);
+
+        font-size: 29vw;
+
+        line-height: 0.88;
+
+        letter-spacing: -0.09em;
+    }
+
+
+    /* =========================
+       INTRO PROFILE
+    ========================== */
+
+    .profile-area {
+        top: 50%;
+        left: 50%;
+
+        width: 78vw;
+
+        height: 62%;
+
+        bottom: auto;
+
+        transform: translate(-50%, -50%);
+    }
+
+
+    /* =========================
+       INTRO HANDWRITING
+    ========================== */
+
+    .play-message {
+        left: 7%;
+        bottom: 17%;
+
+        width: 180px;
+    }
+
+    .play-message p {
+        font-size: 42px;
+    }
+
+    .scribble-line {
+        width: 145px;
+    }
+
+    .star-one {
+        top: -28px;
+        left: -18px;
+
+        font-size: 22px;
+    }
+
+    .star-two {
+        top: -40px;
+        left: 2px;
+
+        font-size: 13px;
+    }
+
+
+    /* =========================
+       INTRO PORTFOLIO
+    ========================== */
+
+    .portfolio-copy {
+        display: none;
+    }
+
+
+    /* =========================
+       SCROLL / TOP
+    ========================== */
+
+    .scroll-guide,
+    .top-guide {
+        bottom: 3%;
+    }
+
+    .music-toggle {
+        right: 5vw;
+        bottom: 18px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .music-icon::before {
+        font-size: 17px;
+    }
+
+    .music-toggle.is-muted .music-icon::after {
+        width: 22px;
+    }
+
+
+    /* =========================
+       SECTION NAV
+       (기본 숨김, 햄버거 클릭 시 펼침)
+    ========================== */
+
+    .section-nav {
+        right: 6vw;
+        top: 88px;
+
+        bottom: auto;
+        transform: none;
+
+        align-items: flex-end;
+        gap: 10px;
+
+        padding: 16px 18px;
+
+        background: var(--cream);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: 0 14px 34px rgba(67, 57, 49, 0.14);
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+
+        pointer-events: none;
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            visibility 0s linear 0.3s;
+    }
+
+    body.menu-open .section-nav {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+        transition-delay: 0s;
+    }
+
+    .section-nav-item {
+        width: auto;
+        height: auto;
+        padding: 3px 0;
+
+        grid-template-columns: 8px 20px 1fr;
+
+        column-gap: 7px;
+
+        font-size: 9px;
+    }
+
+    .section-nav-item .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .section-nav-item .section-index {
+        font-size: 9px;
+    }
+
+    .section-nav-item .section-name {
+        font-size: 9px;
+    }
+
+    .section-nav::before {
+        display: none;
+    }
+
+
+    /* =========================
+       MENU BUTTON (열림 상태)
+    ========================== */
+
+    .menu-button span {
+        transition:
+            transform 0.3s ease,
+            opacity 0.3s ease;
+    }
+
+    body.menu-open .menu-button span:first-child {
+        transform: translateY(4.5px) rotate(45deg);
+    }
+
+    body.menu-open .menu-button span:last-child {
+        transform: translateY(-4.5px) rotate(-45deg);
+    }
+
+
+    /* =========================
+       INTRO DECORATION
+    ========================== */
+
+    .circle-top {
+        width: 250px;
+        height: 250px;
+
+        top: -90px;
+        right: -150px;
+    }
+
+    .circle-bottom {
+        width: 260px;
+        height: 260px;
+
+        left: -180px;
+        bottom: -160px;
+    }
+
+
+    /* ==================================================
+       ABOUT MOBILE
+    ================================================== */
+
+    .about-section {
+        height: 100svh;
+        min-height: 100svh;
+    }
+
+
+    /* ABOUT TITLE */
+
+    .about-heading {
+        top: 14%;
+        left: 7%;
+    }
+
+    .about-heading h2 {
+        font-size: 30px;
+    }
+
+    .about-heading-line {
+        width: 35px;
+
+        margin-top: 10px;
+    }
+
+
+    /* ==================================================
+       ABOUT BACKGROUND TEXT
+
+       이미지와 동일하게 화면 중앙
+    ================================================== */
+
+    .about-background-text {
+        top: 50%;
+        left: 50%;
+
+        width: max-content;
+
+        transform: translate(-50%, -50%);
+
+        font-size: 25vw;
+
+        line-height: 0.87;
+
+        letter-spacing: -0.09em;
+    }
+
+
+    /* ==================================================
+       ABOUT PROFILE
+
+       화면 중앙
+    ================================================== */
+
+    .about-profile {
+        top: 50%;
+        left: 50%;
+
+        width: 78vw;
+        height: 65%;
+
+        transform: translate(-50%, -50%);
+    }
+
+
+    /* ABOUT INFORMATION */
+
+    .about-info {
+        left: 7%;
+        bottom: 10%;
+
+        width: 300px;
+    }
+
+    .about-basic strong {
+        font-size: 17px;
+    }
+
+    .about-basic span {
+        font-size: 15px;
+    }
+
+    .about-description {
+        margin-top: 18px;
+
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+
+    /* ABOUT TAGS */
+
+    .about-tags {
+        gap: 7px;
+
+        margin-top: 20px;
+    }
+
+    .about-tags span {
+        min-width: auto;
+
+        height: 27px;
+
+        padding: 0 12px;
+
+        font-size: 9px;
+    }
+
+
+    /* ABOUT DECORATION */
+
+    .about-decoration {
+        width: 260px;
+        height: 260px;
+
+        left: -170px;
+        bottom: -170px;
+    }
+
+
+    /* ==================================================
+       LIKE MOBILE
+    ================================================== */
+
+    .like-section {
+        height: 100svh;
+        min-height: 100svh;
+    }
+
+    .like-intro {
+        top: 50%;
+    }
+
+    .like-section-number {
+        margin-bottom: 15px;
+        font-size: 10px;
+    }
+
+    .like-intro h2 {
+        font-size: 29vw;
+        line-height: 0.84;
+    }
+
+    .like-intro p {
+        margin-top: 20px;
+        font-size: 12px;
+    }
+
+    .like-story {
+        top: 50%;
+        width: 88vw;
+    }
+
+    .like-item {
+        gap: 14px;
+    }
+
+    .like-item-number {
+        padding-top: 0;
+        font-size: 10px;
+    }
+
+    .like-item-content {
+        padding-top: 0;
+    }
+
+    .like-item-content h3 {
+        font-size: clamp(27px, 7vw, 40px);
+        line-height: 1.35;
+    }
+
+    .like-item-content p {
+        margin-top: 14px;
+        font-size: clamp(16px, 4.5vw, 22px);
+        line-height: 1.7;
+    }
+
+    .like-counter {
+        right: 7%;
+        bottom: 8%;
+        font-size: 9px;
+    }
+
+    .like-counter-line {
+        width: 25px;
+    }
+
+
+    /* ==================================================
+       WORK MOBILE
+    ================================================== */
+
+    .work-intro h2 {
+        font-size: 19vw;
+        line-height: 1.05;
+    }
+
+    .work-intro p {
+        margin-top: 20px;
+        font-size: 12px;
+    }
+
+    .work-story {
+        top: 50%;
+        width: 88vw;
+    }
+
+    .work-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .work-item-image {
+        width: 58vw;
+        max-width: 230px;
+    }
+
+    .work-item-content h3 {
+        margin-top: 6px;
+        font-size: clamp(24px, 6.5vw, 34px);
+        line-height: 1.3;
+    }
+
+    .work-item-link {
+        margin-top: 18px;
+    }
+
+
+    .work-counter {
+        right: 7%;
+        bottom: 8%;
+        font-size: 9px;
+    }
+
+    .work-counter-line {
+        width: 25px;
+    }
+
+
+    /* ==================================================
+       FUTURE MOBILE
+    ================================================== */
+
+    .future-heading {
+        top: 12%;
+        left: 7%;
+    }
+
+    .future-slider {
+        width: 84vw;
+    }
+
+    .future-slide p {
+        font-size: 15px;
+    }
+
+    .future-nav {
+        position: static;
+        margin-top: 22px;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .future-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+    }
+
+
+    /* ==================================================
+       CONTACT MOBILE
+    ================================================== */
+
+    .contact-heading h2 {
+        font-size: 17vw;
+    }
+
+    .contact-links {
+        margin-top: 40px;
+        gap: 16px;
+    }
+
+    .contact-message {
+        margin-top: 34px;
+        font-size: 13px;
+    }
+
+
+    /* ==================================================
+       FOOTER MOBILE
+    ================================================== */
+
+    .site-footer {
+        padding: 20px 6vw 26px;
+    }
+
+    .footer-copy {
+        font-size: 10px;
+    }
+}
+
+
+/* ==================================================
+   SMALL MOBILE
+================================================== */
+
+@media (max-width: 420px) {
+
+
+    /* INTRO */
+
+    .hero-title {
+        top: 50%;
+        left: 50%;
+
+        font-size: 29vw;
+
+        transform: translate(-50%, -50%);
+    }
+
+    .profile-area {
+        width: 80vw;
+
+        height: 61%;
+
+        bottom: auto;
+
+        transform: translate(-50%, -50%);
+    }
+
+    .play-message {
+        bottom: 15%;
+    }
+
+    .play-message p {
+        font-size: 37px;
+    }
+
+
+    /* ABOUT */
+
+    .about-heading {
+        top: 13%;
+        left: 7%;
+    }
+
+    .about-heading h2 {
+        font-size: 27px;
+    }
+
+    .about-background-text {
+        top: 50%;
+        left: 50%;
+
+        font-size: 26vw;
+
+        transform: translate(-50%, -50%);
+    }
+
+    .about-profile {
+        top: 50%;
+        left: 50%;
+
+        width: 82vw;
+        height: 62%;
+
+        transform: translate(-50%, -50%);
+    }
+
+    .about-info {
+        left: 7%;
+        bottom: 9%;
+    }
+
+    .about-description {
+        font-size: 12px;
+    }
+
+    .about-tags {
+        gap: 5px;
+    }
+
+    .about-tags span {
+        padding: 0 10px;
+
+        font-size: 8px;
+    }
+
+
+    /* LIKE */
+
+    .like-story {
+        width: 90vw;
+        top: 50%;
+    }
+
+    .like-item {
+        gap: 10px;
+    }
+
+    .like-item-content h3 {
+        font-size: 26px;
+        line-height: 1.3;
+    }
+
+    .like-item-content p {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+
+    .like-counter {
+        bottom: 7%;
+    }
+
+
+    /* SECTION NAV */
+
+    .section-nav {
+        right: 5vw;
+        top: 78px;
+        padding: 13px 15px;
+    }
+}
+
+
+/* ==================================================
+   LARGE DESKTOP
+================================================== */
+
+@media (min-width: 1200px) and (min-height: 800px) {
+
+
+    /* INTRO - 기존 설정 유지 */
+
+    .hero-title {
+        top: 50%;
+
+        font-size: clamp(130px, 24vw, 380px);
+    }
+
+    .profile-area {
+        top: 50%;
+
+        width: min(78vw, 940px);
+
+        height: 72%;
+
+        bottom: auto;
+
+        transform: translate(-50%, -50%);
+    }
+
+    .play-message {
+        bottom: 21%;
+    }
+
+
+    /* ABOUT */
+
+    .about-background-text {
+        top: 50%;
+        left: 50%;
+
+        transform: translate(-50%, -50%);
+    }
+
+    .about-profile {
+        top: 50%;
+        left: 50%;
+
+        width: min(50vw, 720px);
+        height: 76%;
+
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* ==================================================
+   UPDATED LAYOUT
+   03 LIKE / 04 WORK / 05 FUTURE
+   ================================================== */
+
+/* -------------------------
+   LIKE
+   ------------------------- */
+
+/* 처음에는 기존처럼 중앙의 큰 LIKE */
+.like-intro {
+    transition:
+        opacity 0.55s ease,
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        top 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        left 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 스크롤로 내용이 시작되면 ABOUT ME와 같은 제목 위치로 이동 */
+.like-section.is-story .like-intro {
+    top: 19%;
+    left: 8.6%;
+    width: max-content;
+    transform: none;
+    text-align: left;
+    opacity: 1;
+    pointer-events: none;
+}
+
+/* 작은 섹션 번호 + ABOUT ME와 비슷한 제목 크기 */
+.like-section.is-story .like-section-number {
+    margin-bottom: 12px;
+}
+
+.like-section.is-story .like-intro h2 {
+    font-size: clamp(30px, 3vw, 48px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+/* 설명 문구는 제목 옆/아래에서 자연스럽게 정리 */
+.like-section.is-story .like-intro p {
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+/* 내용은 화면 정중앙에 크게 표시 */
+.like-section.is-story .like-story {
+    top: 50%;
+    width: min(88vw, 1140px);
+}
+
+/* -------------------------
+   WORK
+   ------------------------- */
+
+/* 처음에는 기존처럼 중앙의 큰 WORK */
+.work-intro {
+    transition:
+        opacity 0.55s ease,
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        top 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        left 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 스크롤로 작품이 시작되면 ABOUT ME와 같은 제목 위치로 이동 */
+.work-section.is-story .work-intro {
+    top: 19%;
+    left: 8.6%;
+    width: max-content;
+    transform: none;
+    text-align: left;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.work-section.is-story .work-section-number {
+    margin-bottom: 12px;
+}
+
+.work-section.is-story .work-intro h2 {
+    font-size: clamp(30px, 3vw, 48px);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.work-section.is-story .work-intro p {
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+/* 작품 영역은 화면 정중앙에 표시 */
+.work-section.is-story .work-story {
+    top: 50%;
+}
+
+/* -------------------------
+   FUTURE
+   ------------------------- */
+
+/* FUTURE 제목은 기존 좌측 상단 구조 유지 */
+.future-heading {
+    top: 19%;
+    left: 8.6%;
+}
+
+/* 텍스트 중심 슬라이드 */
+.future-slider {
+    width: min(78vw, 1100px);
+    margin-top: 5vh;
+}
+
+.future-slide {
+    padding: 30px 8px 40px;
+}
+
+.future-slide-number {
+    font-size: 15px;
+    letter-spacing: 0.12em;
+}
+
+.future-slide h3 {
+    margin-top: 30px;
+    font-size: clamp(38px, 4.5vw, 68px);
+    line-height: 1.25;
+    letter-spacing: -0.05em;
+}
+
+.future-slide p {
+    margin-top: 30px;
+    padding-top: 26px;
+    font-size: clamp(20px, 2.3vw, 34px);
+    line-height: 1.6;
+    letter-spacing: -0.03em;
+}
+
+/* ==================================================
+   UPDATED MOBILE
+   ================================================== */
+
+@media (max-width: 768px) {
+
+    /* LIKE */
+    .like-section.is-story .like-intro {
+        top: 14%;
+        left: 7%;
+    }
+
+    .like-section.is-story .like-intro h2 {
+        font-size: 30px;
+    }
+
+    .like-section.is-story .like-intro p {
+        font-size: 11px;
+    }
+
+    .like-section.is-story .like-story {
+        top: 50%;
+        width: 82vw;
+    }
+
+    /* WORK */
+    .work-section.is-story .work-intro {
+        top: 14%;
+        left: 7%;
+    }
+
+    .work-section.is-story .work-intro h2 {
+        font-size: 30px;
+    }
+
+    .work-section.is-story .work-intro p {
+        font-size: 11px;
+    }
+
+    .work-section.is-story .work-story {
+        top: 50%;
+        width: 88vw;
+    }
+
+    /* FUTURE */
+    .future-heading {
+        top: 14%;
+        left: 7%;
+    }
+
+    .future-slider {
+        width: 84vw;
+        margin-top: 7vh;
+    }
+
+    .future-slide {
+        padding: 20px 4px 30px;
+    }
+
+    .future-slide-number {
+        font-size: 11px;
+    }
+
+    .future-slide h3 {
+        margin-top: 22px;
+        font-size: clamp(27px, 7vw, 40px);
+        line-height: 1.35;
+    }
+
+    .future-slide p {
+        margin-top: 20px;
+        padding-top: 18px;
+        font-size: clamp(16px, 4.5vw, 22px);
+        line-height: 1.7;
+    }
+
+    .future-nav {
+        position: static;
+        margin-top: 18px;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        gap: 9px;
+    }
+
+    .future-nav-count {
+        font-size: 10px;
+        margin-right: 4px;
+    }
+
+    .future-arrow {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+        font-size: 18px;
+    }
+}
